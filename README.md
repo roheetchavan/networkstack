@@ -1,3 +1,3 @@
 
-# TCP IP stack implementation
+# Learning linux networking stack by implementing it.
 
