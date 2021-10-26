@@ -11,6 +11,11 @@ typedef struct _gllist{
 #define IS_GLLIST_EMPTY(gllistptr)  \
     ((gllistptr)->right == 0 && (gllistptr)->left == 0)
 
+#define GLTHREAD_TO_STRUCT(fn_name, structure_name, field_name)                                         \
+     static inline structure_name * fn_name(gllist_t *gllistptr){                                       \
+         return (structure_name *)((char *)(gllistptr) - (char *)&(((structure_name *)0)->field_name)); \
+     }
+
 #define BASE(gllistptr) ((gllistptr)->right)
 
 #define ITERATE_GLLIST_START(glliststartptr, gllistptr) \
